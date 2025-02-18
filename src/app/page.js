@@ -8,10 +8,14 @@ import Component3 from "./component3";
 export const ItemContext = createContext();
 
   const ItemContextProvider = ({ children }) => {
-    const [newItem, setNewItem] = useState(undefined);
+    const [items, setItems] = useState([
+          { id: 1, name: 'Apples' },
+          { id: 2, name: 'Bananas' },
+          { id: 3, name: 'Oranges' },
+        ]);
 
     return (
-        <ItemContext.Provider value={{ newItem, setNewItem }}>
+        <ItemContext.Provider value={{ items, setItems }}>
             {children}
         </ItemContext.Provider>
     );
@@ -21,13 +25,12 @@ export const ItemContext = createContext();
     const [cSelect, setComponent] = useState(0);
   
     const components = {
-      0: <Component1 />,
+      0: <Component1 name="Joe"/>,
       1: <Component2 />,
       2: <Component3 />,
     };
   
     return (
-      // Wrap Home in ItemContextProvider
       <ItemContextProvider>
         <div>
           <h1>Welcome!</h1>

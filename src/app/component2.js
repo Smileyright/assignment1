@@ -1,17 +1,14 @@
 "use client"
 
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { ItemContext } from './page';
 
 export default function Component2() {
 
+    const { items, setItems } = useContext(ItemContext);
+
     // const [inputValue, setInputValue] = useState('');
     const [isShown, toggleShow] = useState(true);
-    const [items, setItems] = useState([
-      { id: 1, name: 'Item 1' },
-      { id: 2, name: 'Item 2' },
-      { id: 3, name: 'Item 3' },
-    ]);
     const [itemsA, setItemsA] = useState([
       { id: 1, name: 'A'}
     ])
@@ -33,14 +30,13 @@ export default function Component2() {
     //   setInputValue(event.target.value);
     // };
   
-    const addItem = (input) => {
-      const newItem = { id: items.length + 1, name: `${input}` };
-      setItems([...items, newItem]);
-    };
-  
     const removeItem = (id) => {
       setItems(items.filter((item) => item.id !== id));
     };
+
+    const updateItems = () => {
+
+    }
 
     const updateItemsA = () => {
       setItemsA(items.filter((item) => item.name.charAt(0).toLowerCase() === 'a'));
@@ -53,7 +49,7 @@ export default function Component2() {
 
     return (
         <div>
-            <p>This is the list component</p>
+            <h2>This component displays a list</h2>
             <div>
             {isShown ? (
               <ul>
@@ -78,8 +74,6 @@ export default function Component2() {
             
           </div>
 
-        <input value={inputValue} onChange={handleInputChange}/>
-        <button onClick={() => handleSubmit()}>Add Item</button>
         <input type="checkbox" onChange={renderList}></input>
 
         </div>
