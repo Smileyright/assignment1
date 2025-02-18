@@ -4,7 +4,7 @@ export default function Component3() {
 
     return (
         <div>
-            <p>This is component 3</p>
+            <p>This is the button component</p>
         </div>
     );
 }
