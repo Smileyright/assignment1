@@ -5,6 +5,7 @@ import Component1 from "./component1";
 import Component2 from "./component2";
 import Component3 from "./component3";
 
+//Allows list to be edited or accessed from components
 export const ItemContext = createContext();
 
   const ItemContextProvider = ({ children }) => {
@@ -22,6 +23,7 @@ export const ItemContext = createContext();
   };
 
   const Home = () => {
+    //Logic for which component should be displayed
     const [cSelect, setComponent] = useState(0);
   
     const components = {
@@ -29,7 +31,7 @@ export const ItemContext = createContext();
       1: <Component2 />,
       2: <Component3 />,
     };
-  
+  //Display
     return (
       <ItemContextProvider>
         <div id="center">
@@ -38,9 +40,9 @@ export const ItemContext = createContext();
           <p>- Alex</p>
           </div>
           <div>
-            <button className="buttons" onClick={() => setComponent(0)}>Component 1</button>
-            <button className="buttons" onClick={() => setComponent(1)}>Component 2</button>
-            <button className="buttons" onClick={() => setComponent(2)}>Component 3</button>
+            <button className="buttons" onClick={() => setComponent(0)}>Home</button>
+            <button className="buttons" onClick={() => setComponent(1)}>List</button>
+            <button className="buttons" onClick={() => setComponent(2)}>Edit List</button>
           </div>
 
           <div id="main">{components[cSelect]}</div>

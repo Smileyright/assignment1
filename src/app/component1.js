@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 
+//Fairly simple, just showing I can use props
 export default function Component1(props) {
 
     return (
