@@ -32,13 +32,18 @@ export const ItemContext = createContext();
   
     return (
       <ItemContextProvider>
-        <div>
-          <h1>Welcome!</h1>
-          <button onClick={() => setComponent(0)}>Component 1</button>
-          <button onClick={() => setComponent(1)}>Component 2</button>
-          <button onClick={() => setComponent(2)}>Component 3</button>
-  
-          <div>{components[cSelect]}</div>
+        <div id="center">
+          <div id="title">
+          <h1>This is my submission for Assignment 1</h1>
+          <p>- Alex</p>
+          </div>
+          <div>
+            <button className="buttons" onClick={() => setComponent(0)}>Component 1</button>
+            <button className="buttons" onClick={() => setComponent(1)}>Component 2</button>
+            <button className="buttons" onClick={() => setComponent(2)}>Component 3</button>
+          </div>
+
+          <div id="main">{components[cSelect]}</div>
         </div>
       </ItemContextProvider>
     );
